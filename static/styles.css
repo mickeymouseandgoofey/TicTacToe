@@ -1,0 +1,83 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.game-container {
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+table.board {
+    margin: 0 auto;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table.board td {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #ccc;
+    font-size: 2em;
+    padding: 0;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    font-size: 2em;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box; /* Ensures padding/border don't affect size */
+}
+
+
+
+button:hover {
+    background-color: #f0f0f0;
+}
+
+button:disabled {
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+}
+
+.winner {
+    margin-top: 20px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.winner a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.winner a:hover {
+    text-decoration: underline;
+}

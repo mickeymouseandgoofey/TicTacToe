@@ -10,5 +10,18 @@
     <div id="game-container">
         <!-- Game code or embedding -->
     </div>
+	<!-- 🎉 Confetti Script -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+<script>
+function celebrateWin() {
+    confetti({
+        particleCount: 200,
+        spread: 100,
+        origin: { y: 0.6 },
+        colors: ['#ff69b4', '#ffd700', '#87ceeb', '#ffb6c1']
+    });
+}
+</script>
+
 </body>
 </html>

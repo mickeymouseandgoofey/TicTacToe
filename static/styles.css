@@ -81,3 +81,14 @@ button:disabled {
 .winner a:hover {
     text-decoration: underline;
 }
+
+/* 🦄 Magical Kid-Friendly Background */
+body {
+    background-image: url('/static/images/unicorn_background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+

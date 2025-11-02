@@ -12,47 +12,62 @@
         <h3>Player {{ next_player }}'s turn</h3>
 
         {% if winner %}
-  <div class="winner">
-    {% if winner == "Draw" %}
-      <p>The game is a draw!</p>
-    {% else %}
-      <p>Player {{ winner }} wins!</p>
-    {% endif %}
-    <form action="/" method="GET">
-      <button type="submit">Play Again</button>
-    </form>
-  </div>
-{% endif %}
-
-
-
-       
-
-   
-
-    <table class="board">
-  {% for row in range(3) %}
-    <tr>
-      {% for col in range(3) %}
-        <td>
-          {% if board[row][col] == " " and not winner %}
-            <form action="/move" method="POST">
-              <input type="hidden" name="player" value="{{ next_player }}">
-              {% for r in board %}
-                {% for c in r %}
-                  <input type="hidden" name="board" value="{{ c }}">
-                {% endfor %}
-              {% endfor %}
-              <input type="hidden" name="row" value="{{ row }}">
-              <input type="hidden" name="col" value="{{ col }}">
-              <button type="submit">{{ board[row][col] }}</button>
+        <div class="winner">
+            {% if winner == "Draw" %}
+                <p>The game is a draw!</p>
+            {% else %}
+                <p>🦄 Player {{ winner }} wins! Rainbows and sparkles for you!</p>
+            {% endif %}
+            <form action="/" method="GET">
+                <button type="submit">Play Again</button>
             </form>
-          {% else %}
-            <span>{{ board[row][col] }}</span>
-          {% endif %}
-        </td>
-      {% endfor %}
-    </tr>
-  {% endfor %}
-</table>
+        </div>
+        {% endif %}
 
+        <table class="board">
+            {% for row in range(3) %}
+            <tr>
+                {% for col in range(3) %}
+                <td>
+                    {% if board[row][col] == " " and not winner %}
+                    <form action="/move" method="POST">
+                        <input type="hidden" name="player" value="{{ next_player }}">
+                        {% for r in board %}
+                            {% for c in r %}
+                                <input type="hidden" name="board" value="{{ c }}">
+                            {% endfor %}
+                        {% endfor %}
+                        <input type="hidden" name="row" value="{{ row }}">
+                        <input type="hidden" name="col" value="{{ col }}">
+                        <button type="submit">{{ board[row][col] }}</button>
+                    </form>
+                    {% else %}
+                    <span>{{ board[row][col] }}</span>
+                    {% endif %}
+                </td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <!-- 🎉 Confetti Script -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script>
+    function celebrateWin() {
+        confetti({
+            particleCount: 200,
+            spread: 100,
+            origin: { y: 0.6 },
+            colors: ['#ff69b4', '#ffd700', '#87ceeb', '#ffb6c1']
+        });
+    }
+    </script>
+
+    {% if winner and winner != "Draw" %}
+    <script>
+        celebrateWin();
+    </script>
+    {% endif %}
+</body>
+</html>
